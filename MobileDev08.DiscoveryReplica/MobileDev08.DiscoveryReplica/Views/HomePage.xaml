@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:views="clr-namespace:MobileDev08.DiscoveryReplica.Views" 
+            x:DataType="views:HomePage"
+            x:Class="MobileDev08.DiscoveryReplica.Views.HomePage">
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Tab 1">
+        <StackLayout>
+            <Label Text="Hey there!" FontSize="Title" HorizontalOptions="Center"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Tab 2" />
+  <ContentPage Title="Tab 3" />
+</TabbedPage>
