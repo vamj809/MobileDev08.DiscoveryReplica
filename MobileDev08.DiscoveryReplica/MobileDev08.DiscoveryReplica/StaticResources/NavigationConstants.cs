@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MobileDev08.DiscoveryReplica.Helpers
+namespace MobileDev08.DiscoveryReplica.StaticResources
 {
     public static class NavigationConstants
     {

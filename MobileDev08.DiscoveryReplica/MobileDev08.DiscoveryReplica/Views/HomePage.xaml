@@ -1,15 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-            xmlns:views="clr-namespace:MobileDev08.DiscoveryReplica.Views" 
-            x:DataType="views:HomePage"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:staticResources="clr-namespace:MobileDev08.DiscoveryReplica.StaticResources"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
             x:Class="MobileDev08.DiscoveryReplica.Views.HomePage">
-  <!--Pages can be added as references or inline-->
-    <ContentPage Title="Tab 1">
-        <StackLayout>
-            <Label Text="Hey there!" FontSize="Title" HorizontalOptions="Center"/>
-        </StackLayout>
+    <ContentPage Title="{Binding Source = {x:Static staticResources:Options.Tab1}}" 
+                 IconImageSource="{Binding Source = {x:Static staticResources:Icons.Tab1}}">
+        <Grid RowDefinitions="Auto, Auto, Auto, *, Auto, Auto" ColumnDefinitions="*,Auto" 
+              HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+              Padding="20,15,20,0">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource TitleLabelStyle}"
+                   Text="{Binding Source = {x:Static staticResources:Titles.QuickHelp}}"/>
+            <Image Grid.Column="1" HorizontalOptions="End" HeightRequest="20" Source="{Binding Source = {x:Static staticResources:Icons.Search}}"/>
+            
+            <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                            ItemsLayout="HorizontalList" HorizontalOptions="CenterAndExpand" HeightRequest="125"
+                            ItemsSource="{Binding Source = {x:Static staticResources:Data.QuickHelpItems}}"
+                            BackgroundColor="Red">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame
+                                   HasShadow="True" BackgroundColor="Blue" CornerRadius="10"
+                                   Margin="15,15,0,10" IsClippedToBounds="True"
+                                   HeightRequest="30" WidthRequest="30">
+                                <Image Source="{Binding Image}"
+                                    Aspect="AspectFill"
+                                    HeightRequest="30"
+                                    WidthRequest="30" />
+                            </Frame>
+                            <Label Text="{Binding Title}" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource TitleLabelStyle}"
+                   Text="{Binding Source = {x:Static staticResources:Titles.DailyMeditations}}"/>
+            <Frame Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="Green" HeightRequest="100">
+                <Image Source="{Binding Source = {x:Static staticResources:Data.MainDailyMeditationItem}}"
+                    Aspect="AspectFill"
+                    HeightRequest="30"
+                    WidthRequest="30" />
+            </Frame>
+            <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource TitleLabelStyle}"
+                   Text="{Binding Source = {x:Static staticResources:Titles.NewMusic}}"/>
+            <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="End"
+                   Text="{Binding Source = {x:Static staticResources:Options.ViewAll}}"/>
+            <CollectionView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" 
+                            ItemsSource="{Binding Source = {x:Static staticResources:Data.DailyMeditationItems}}"
+                            ItemsLayout="HorizontalList" HorizontalOptions="CenterAndExpand" HeightRequest="200">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame
+                                HasShadow="True" BackgroundColor="Pink" CornerRadius="10"
+                                Margin="15,15,0,10" IsClippedToBounds="True"
+                                HeightRequest="60" WidthRequest="30">
+                                <StackLayout>
+                                    <Image Source="{Binding Image}"
+                                        Aspect="AspectFit"
+                                        HeightRequest="60"
+                                        WidthRequest="30" />
+                                    <Label Text="{Binding Title}" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding DurationLabel}" HorizontalOptions="Center"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </ContentPage>
-    <ContentPage Title="Tab 2" />
-  <ContentPage Title="Tab 3" />
+    <ContentPage Title="{Binding Source = {x:Static staticResources:Options.Tab2}}" IconImageSource="{Binding Source = {x:Static staticResources:Icons.Tab2}}"/>
+    <ContentPage Title="{Binding Source = {x:Static staticResources:Options.Tab3}}" IconImageSource="{Binding Source = {x:Static staticResources:Icons.Tab3}}"/>
+    <ContentPage Title="{Binding Source = {x:Static staticResources:Options.Tab4}}" IconImageSource="{Binding Source = {x:Static staticResources:Icons.Tab4}}"/>
+    <ContentPage Title="{Binding Source = {x:Static staticResources:Options.Tab5}}" IconImageSource="{Binding Source = {x:Static staticResources:Icons.Tab5}}"/>
+
 </TabbedPage>

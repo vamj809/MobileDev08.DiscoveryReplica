@@ -4,6 +4,12 @@
              x:Class="MobileDev08.DiscoveryReplica.App"
              xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style x:Key="TitleLabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

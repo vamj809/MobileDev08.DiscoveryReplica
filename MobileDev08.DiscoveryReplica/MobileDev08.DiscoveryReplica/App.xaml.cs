@@ -1,4 +1,4 @@
-﻿using MobileDev08.DiscoveryReplica.Helpers;
+﻿using MobileDev08.DiscoveryReplica.StaticResources;
 using MobileDev08.DiscoveryReplica.Views;
 using Prism;
 using Prism.Ioc;
