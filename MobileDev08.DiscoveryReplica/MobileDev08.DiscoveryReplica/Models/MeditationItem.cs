@@ -7,7 +7,7 @@ namespace MobileDev08.DiscoveryReplica.Models
     public class MeditationItem
     {
         public string PreferredImage { get => Images.Length > 0 ? Images[0] : null; }
-        public string DurationLabel { get => Duration + " " + DurationMeasure; }
+        public string DurationLabel { get => "🕒 " + Duration + " " + DurationMeasure; }
         public string[] Images { get; }
         public string Title { get; }
         public string Description { get; }

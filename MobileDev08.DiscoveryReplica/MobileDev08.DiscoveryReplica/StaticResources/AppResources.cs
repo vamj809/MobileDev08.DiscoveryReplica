@@ -1,5 +1,4 @@
 ﻿using MobileDev08.DiscoveryReplica.Models;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace MobileDev08.DiscoveryReplica.StaticResources
@@ -41,18 +40,19 @@ namespace MobileDev08.DiscoveryReplica.StaticResources
         {
             new MenuOption("Wind","Breathe"),
             new MenuOption("SleepingMoon","Sleep"),
-            new MenuOption("AnxiousEmoji","Anxiety"),
+            new MenuOption("DistressedEmoji","Anxiety"),
             new MenuOption("NeutralEmoji","Stress")
         };
 
-        public static MeditationItem MainDailyMeditationItem { get; } = new MeditationItem(null, "Rest & Relax", "", 30);
+        public static MeditationItem MainDailyMeditationItem { get; } = new MeditationItem(
+            new string[] { "MainRestRelax.jpg" }, "Rest & Relax", "", 30);
 
         public static ObservableCollection<MeditationItem> DailyMeditationItems { get; } = new ObservableCollection<MeditationItem>
         {
-            new MeditationItem(null,"Raining Sidewalk","",30),
-            new MeditationItem(null,"Spring Morning","",30),
-            new MeditationItem(null,"First Season","",30),
-            new MeditationItem(null,"Blenheim Palace",
+            new MeditationItem(new string[] { "MainRainingSidewalk.jpg" },"Raining Sidewalk","",5),
+            new MeditationItem(new string[] { "MainSpringMorning.jpg" },"Spring Morning","",7),
+            new MeditationItem(new string[] { "MainFirstSeason.jpg" },"First Season","",30),
+            new MeditationItem(new string[] { "MainBlenheimPalace.jpg" },"Blenheim Palace",
                 "Small batch banjo Cosby sweater, pug " +
                 "polaroid Neutra asymmetrical " +
                 "chambray. Bespoke Etsy wolf, Carles " +

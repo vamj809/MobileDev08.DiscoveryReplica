@@ -1,8 +1,5 @@
 ﻿using Prism.Navigation;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 
 namespace MobileDev08.DiscoveryReplica.ViewModels
 {

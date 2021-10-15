@@ -7,30 +7,27 @@
             x:Class="MobileDev08.DiscoveryReplica.Views.HomePage">
     <ContentPage Title="{Binding Source = {x:Static staticResources:Options.Tab1}}" 
                  IconImageSource="{Binding Source = {x:Static staticResources:Icons.Tab1}}">
-        <Grid RowDefinitions="Auto, Auto, Auto, *, Auto, Auto" ColumnDefinitions="*,Auto" 
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*,Auto" 
               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
-              Padding="20,15,20,0">
+              Padding="20,15,20,5">
+            
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource TitleLabelStyle}"
                    Text="{Binding Source = {x:Static staticResources:Titles.QuickHelp}}"/>
-            <Image Grid.Column="1" HorizontalOptions="End" HeightRequest="20" Source="{Binding Source = {x:Static staticResources:Icons.Search}}"/>
+            <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="End" HeightRequest="20" 
+                   Source="{Binding Source = {x:Static staticResources:Icons.Search}}"/>
             
             <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                            ItemsLayout="HorizontalList" HorizontalOptions="CenterAndExpand" HeightRequest="125"
-                            ItemsSource="{Binding Source = {x:Static staticResources:Data.QuickHelpItems}}"
-                            BackgroundColor="Red">
+                            ItemsLayout="HorizontalList" HeightRequest="120"
+                            ItemsSource="{Binding Source = {x:Static staticResources:Data.QuickHelpItems}}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
-                            <Frame
-                                   HasShadow="True" BackgroundColor="Blue" CornerRadius="10"
-                                   Margin="15,15,0,10" IsClippedToBounds="True"
+                            <Frame Margin="10,15,10,0" 
                                    HeightRequest="30" WidthRequest="30">
-                                <Image Source="{Binding Image}"
-                                    Aspect="AspectFill"
-                                    HeightRequest="30"
-                                    WidthRequest="30" />
+                                <Image Source="{Binding Image}" Aspect="AspectFill"
+                                       Margin="-5"/>
                             </Frame>
-                            <Label Text="{Binding Title}" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Title}" HorizontalOptions="Center" Padding="10,0,10,0"/>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -38,33 +35,45 @@
             
             <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource TitleLabelStyle}"
                    Text="{Binding Source = {x:Static staticResources:Titles.DailyMeditations}}"/>
-            <Frame Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="Green" HeightRequest="100">
-                <Image Source="{Binding Source = {x:Static staticResources:Data.MainDailyMeditationItem}}"
+
+            <Frame Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="100"
+                   BindingContext="{Binding Source = {x:Static staticResources:Data.MainDailyMeditationItem}}">
+                <AbsoluteLayout>
+                    <Image Source="{Binding PreferredImage}"
                     Aspect="AspectFill"
-                    HeightRequest="30"
-                    WidthRequest="30" />
+                    HeightRequest="150"
+                    WidthRequest="350" AbsoluteLayout.LayoutBounds="0,0,1,1" Margin="-20" AbsoluteLayout.LayoutFlags="All"/>
+                    <Label Text="{Binding Description}"/>
+                    <Label Text="{Binding DurationLabel}"/>
+                </AbsoluteLayout>
             </Frame>
+            
             <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource TitleLabelStyle}"
                    Text="{Binding Source = {x:Static staticResources:Titles.NewMusic}}"/>
-            <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="End"
+            <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="End" Margin="5" TextColor="DarkGray"
                    Text="{Binding Source = {x:Static staticResources:Options.ViewAll}}"/>
             <CollectionView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" 
                             ItemsSource="{Binding Source = {x:Static staticResources:Data.DailyMeditationItems}}"
-                            ItemsLayout="HorizontalList" HorizontalOptions="CenterAndExpand" HeightRequest="200">
+                            HorizontalOptions="CenterAndExpand" HeightRequest="200">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
+                                       ItemSpacing="5"/>
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout>
+                        <StackLayout Padding="5">
                             <Frame
-                                HasShadow="True" BackgroundColor="Pink" CornerRadius="10"
-                                Margin="15,15,0,10" IsClippedToBounds="True"
-                                HeightRequest="60" WidthRequest="30">
-                                <StackLayout>
-                                    <Image Source="{Binding Image}"
-                                        Aspect="AspectFit"
-                                        HeightRequest="60"
-                                        WidthRequest="30" />
-                                    <Label Text="{Binding Title}" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding DurationLabel}" HorizontalOptions="Center"/>
+                                HasShadow="True" BackgroundColor="White" CornerRadius="15"
+                                IsClippedToBounds="True"
+                                WidthRequest="115">
+                                <StackLayout Padding="0">
+                                    <Image Source="{Binding PreferredImage}" 
+                                               VerticalOptions="Start" HorizontalOptions="FillAndExpand"
+                                               Margin="-30" Aspect="AspectFill" HeightRequest="120"/>
+                                    <Label Text="{Binding Title}" Style="{StaticResource TitleLabelStyle}"
+                                               Margin="-5,30,-5,0" FontSize="Body"/>
+                                    <Label Text="{Binding DurationLabel}" 
+                                               Margin="-4,0,-5,0" TextColor="DarkGray" HorizontalOptions="Start" />
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
