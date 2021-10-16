@@ -4,7 +4,9 @@
             xmlns:staticResources="clr-namespace:MobileDev08.DiscoveryReplica.StaticResources"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            x:Class="MobileDev08.DiscoveryReplica.Views.HomePage">
+            android:TabbedPage.IsSwipePagingEnabled="False"
+            x:Class="MobileDev08.DiscoveryReplica.Views.HomePage"
+            NavigationPage.HasNavigationBar="False">
     <ContentPage Title="{Binding Source = {x:Static staticResources:Options.Tab1}}" 
                  IconImageSource="{Binding Source = {x:Static staticResources:Icons.Tab1}}">
         <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*,Auto" 

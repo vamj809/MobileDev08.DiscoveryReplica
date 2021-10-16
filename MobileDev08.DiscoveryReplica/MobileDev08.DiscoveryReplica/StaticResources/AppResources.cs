@@ -27,11 +27,11 @@ namespace MobileDev08.DiscoveryReplica.StaticResources
         public static string Export { get; } = "ExportIcon";
         public static string AddToCalendar { get; } = "AddCalendarIcon";
         public static string Favorite { get; } = "HeartIcon";
-        public static string Tab1 { get; } = "Calendar";
-        public static string Tab2 { get; } = "Video";
-        public static string Tab3 { get; } = "Moon";
-        public static string Tab4 { get; } = "Disc";
-        public static string Tab5 { get; } = "User";
+        public static string Tab1 { get; } = "CalendarIcon";
+        public static string Tab2 { get; } = "VideoIcon";
+        public static string Tab3 { get; } = "MoonIcon";
+        public static string Tab4 { get; } = "DiscIcon";
+        public static string Tab5 { get; } = "UserIcon";
     }
 
     public static class Data

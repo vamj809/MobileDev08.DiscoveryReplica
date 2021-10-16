@@ -8,7 +8,7 @@ using System.Text;
 
 namespace MobileDev08.DiscoveryReplica.ViewModels
 {
-    public class HomePageViewModel : BaseViewModel, INavigatedAware
+    public class HomePageViewModel : BaseViewModel
     {
         private MeditationItem _selectedDailyMeditationItem;
         public MeditationItem SelectedMeditationItem
@@ -34,21 +34,11 @@ namespace MobileDev08.DiscoveryReplica.ViewModels
             GoToDetailsCommand = new DelegateCommand<MeditationItem>(
                 async (MeditationItem meditationItem) =>
                 {
-                    await navigationService.NavigateAsync(NavigationConstants.Paths.DetailsPage, new NavigationParameters()
+                    await navigationService.NavigateAsync($"{NavigationConstants.Paths.DetailsPage}", new NavigationParameters()
                     {
                         { NavigationConstants.Parameters.MeditationItem, meditationItem }
                     });
                 });
-        }
-
-        public void OnNavigatedFrom(INavigationParameters parameters)
-        {
-            
-        }
-
-        public void OnNavigatedTo(INavigationParameters parameters)
-        {
-            
         }
     }
 }

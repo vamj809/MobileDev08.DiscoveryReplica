@@ -10,6 +10,7 @@ namespace MobileDev08.DiscoveryReplica.StaticResources
         {
             public const string HomePage = "HomePage";
             public const string DetailsPage = "DetailsPage";
+            public const string NavigationPage = "NavigationPage";
         }
         public static class Parameters
         {

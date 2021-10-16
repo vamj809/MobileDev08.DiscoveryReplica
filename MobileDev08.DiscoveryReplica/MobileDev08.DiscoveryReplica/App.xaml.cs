@@ -16,10 +16,11 @@ namespace MobileDev08.DiscoveryReplica
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync(NavigationConstants.Paths.HomePage);
+            NavigationService.NavigateAsync($"{NavigationConstants.Paths.NavigationPage}/{NavigationConstants.Paths.HomePage}");
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage>();
             containerRegistry.RegisterForNavigation<DetailsPage>();
         }
