@@ -6,7 +6,7 @@ namespace MobileDev08.DiscoveryReplica.StaticResources
     public static class Titles
     {
         public static string QuickHelp { get; } = "Quick Help";
-        public static string DailyMeditations { get; } = "Daily meditations";
+        public static string DailyMeditations { get; } = "Daily Meditations";
         public static string NewMusic { get; } = "New Music";
         public static string Articles { get; } = "Article Title";
     }
@@ -24,9 +24,9 @@ namespace MobileDev08.DiscoveryReplica.StaticResources
     public static class Icons
     {
         public static string Search { get; } = "Magnifier";
-        public static string Export { get; } = "Export";
-        public static string AddToCalendar { get; } = "AddCalendar";
-        public static string Favorites { get; } = "Heart";
+        public static string Export { get; } = "ExportIcon";
+        public static string AddToCalendar { get; } = "AddCalendarIcon";
+        public static string Favorite { get; } = "HeartIcon";
         public static string Tab1 { get; } = "Calendar";
         public static string Tab2 { get; } = "Video";
         public static string Tab3 { get; } = "Moon";
@@ -45,14 +45,14 @@ namespace MobileDev08.DiscoveryReplica.StaticResources
         };
 
         public static MeditationItem MainDailyMeditationItem { get; } = new MeditationItem(
-            new string[] { "MainRestRelax.jpg" }, "Rest & Relax", "", 30);
+            new ObservableCollection<string>(){ "MainRestRelax.jpg" }, "Rest & Relax", "", 30);
 
         public static ObservableCollection<MeditationItem> DailyMeditationItems { get; } = new ObservableCollection<MeditationItem>
         {
-            new MeditationItem(new string[] { "MainRainingSidewalk.jpg" },"Raining Sidewalk","",5),
-            new MeditationItem(new string[] { "MainSpringMorning.jpg" },"Spring Morning","",7),
-            new MeditationItem(new string[] { "MainFirstSeason.jpg" },"First Season","",30),
-            new MeditationItem(new string[] { "MainBlenheimPalace.jpg" },"Blenheim Palace",
+            new MeditationItem(new ObservableCollection<string>(){ "MainRainingSidewalk.jpg", "MainFirstSeason.jpg" },"Raining Sidewalk","",5),
+            new MeditationItem(new ObservableCollection<string>(){ "MainSpringMorning.jpg", "MainFirstSeason.jpg" },"Spring Morning","",7),
+            new MeditationItem(new ObservableCollection<string>(){ "MainFirstSeason.jpg", "MainFirstSeason.jpg" },"First Season","",30),
+            new MeditationItem(new ObservableCollection<string>(){ "MainBlenheimPalace.jpg", "MainFirstSeason.jpg" },"Blenheim Palace",
                 "Small batch banjo Cosby sweater, pug " +
                 "polaroid Neutra asymmetrical " +
                 "chambray. Bespoke Etsy wolf, Carles " +

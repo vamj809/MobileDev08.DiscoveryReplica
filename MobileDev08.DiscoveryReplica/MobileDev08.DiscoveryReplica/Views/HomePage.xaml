@@ -43,8 +43,10 @@
                     Aspect="AspectFill"
                     HeightRequest="150"
                     WidthRequest="350" AbsoluteLayout.LayoutBounds="0,0,1,1" Margin="-20" AbsoluteLayout.LayoutFlags="All"/>
-                    <Label Text="{Binding Description}"/>
-                    <Label Text="{Binding DurationLabel}"/>
+                    <Label Text="{Binding Title}" Style="{StaticResource TitleLabelStyle}"
+                           AbsoluteLayout.LayoutBounds="0,0.8" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    <Label Text="{Binding DurationLabel}" 
+                           AbsoluteLayout.LayoutBounds="0,1" AbsoluteLayout.LayoutFlags="PositionProportional"/>
                 </AbsoluteLayout>
             </Frame>
             
@@ -54,6 +56,7 @@
                    Text="{Binding Source = {x:Static staticResources:Options.ViewAll}}"/>
             <CollectionView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" 
                             ItemsSource="{Binding Source = {x:Static staticResources:Data.DailyMeditationItems}}"
+                            SelectedItem="{Binding SelectedMeditationItem}" SelectionMode="Single"
                             HorizontalOptions="CenterAndExpand" HeightRequest="200">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Horizontal"
@@ -61,7 +64,7 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="5">
+                        <AbsoluteLayout Padding="5">
                             <Frame
                                 HasShadow="True" BackgroundColor="White" CornerRadius="15"
                                 IsClippedToBounds="True"
@@ -76,7 +79,7 @@
                                                Margin="-4,0,-5,0" TextColor="DarkGray" HorizontalOptions="Start" />
                                 </StackLayout>
                             </Frame>
-                        </StackLayout>
+                        </AbsoluteLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

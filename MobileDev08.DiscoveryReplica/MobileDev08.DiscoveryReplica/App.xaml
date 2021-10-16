@@ -18,6 +18,18 @@
                 <Setter Property="CornerRadius" Value="15"/>
                 <Setter Property="HasShadow" Value="True"/>
             </Style>
+
+            <Style x:Key="ImageButtonStyles" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+
+            <Style x:Key="DetailLabelsCommonStyles" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="#defff5"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="Padding" Value="30,10,30,0"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>
